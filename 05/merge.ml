@@ -7,3 +7,19 @@ let rec merge x y =
         if hx < hy
         then hx :: merge xs y
         else hy :: merge x ys
+;;
+
+(* Not tail recursive *)
+let rec take n l = 
+  match n, l with
+    0, _ -> []
+    | _, [] -> []
+    | num, x::xs -> x :: take (num - 1) xs
+;;
+
+let rec drop n l =
+  match n, l with 
+      0, x::xs -> x::xs
+    | _, [] -> []
+    | num, x::xs -> drop (num - 1) xs
+;;
