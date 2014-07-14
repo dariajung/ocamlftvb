@@ -23,3 +23,14 @@ let rec drop n l =
     | _, [] -> []
     | num, x::xs -> drop (num - 1) xs
 ;;
+
+(* Len' is implemented in a previous chapter *)
+let rec msort l =
+  match l with
+      [] -> []
+    | [x] -> [x]
+    | _ ->
+        let lesser = take (len' l / 2) l in
+        let greater = drop (len' l / 2) l in
+          merge (msort lesser) (msort greater)
+;;
