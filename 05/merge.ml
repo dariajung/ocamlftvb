@@ -30,7 +30,8 @@ let rec msort l =
       [] -> []
     | [x] -> [x]
     | _ ->
-        let lesser = take (len' l / 2) l in
-        let greater = drop (len' l / 2) l in
+        let pivot = len' l / 2 in
+        let lesser = take pivot l in
+        let greater = drop pivot l in
           merge (msort lesser) (msort greater)
 ;;
